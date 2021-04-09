@@ -1,0 +1,9 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models;
+
+@model IEnumerable<SANPHAM>
+
+@foreach(var item in Model)
+{
+    <td><img src="@Url.Content("~/Content/images/"+item.HINHANH)" /></td>
+    <div>@item.TENSP</div>
+}    

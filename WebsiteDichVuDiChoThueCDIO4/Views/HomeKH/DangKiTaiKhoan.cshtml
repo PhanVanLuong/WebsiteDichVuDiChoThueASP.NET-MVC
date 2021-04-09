@@ -1,0 +1,87 @@
+﻿@model WebsiteDichVuDiChoThueCDIO4.Models.signup
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elegant Login Form Flat Responsive Widget Template :: w3layouts</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Elegant Login Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme  -->
+    <link rel="stylesheet" href="~/Content/ContentDangNhap/css/style.css">
+    <!-- font-awesome icons -->
+    <link href="~/Content/ContentDangNhap/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+</head>
+<body>
+    <div class="login-form w3_form">
+        <!--  Title-->
+        <div class="login-title w3_title">
+            @*<h1>ĐI CHỢ THUÊ</h1>*@
+        </div>
+        <div class="login w3_login">
+            <h2 class="login-header w3_header">SIGNUP</h2>
+            <div class="w3l_grid">
+                <center>
+                    @using (Html.BeginForm("dangki1", "HomeKH", FormMethod.Post))
+                    {
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger" }, "error" )
+                    <form class="login-container" action="#" method="post">
+
+                        @Html.TextBoxFor(model => model.HOTEN, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Họ và tên" })<br />
+                        @Html.TextBoxFor(model => model.DIACHI, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Địa chỉ" })
+                        @Html.TextBoxFor(model => model.EMAIL, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Email", type = "email" })
+                        @Html.TextBoxFor(model => model.SDT, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Số điện thoại", type = "number" })<br />
+                        @Html.TextBoxFor(model => model.TENDN, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Tài khoản" })
+                        @Html.TextBoxFor(model => model.MATKHAU, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Mật khẩu", type = "password" })
+                        @Html.TextBoxFor(model => model.F_MATKHAU, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Nhập lại Mật khẩu", type = "password" })
+                        //
+                        @*@Html.TextBox("HOTEN", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Họ và tên" })<br />
+        @Html.TextBox("DIACHI", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Địa chỉ" })
+        @Html.TextBox("EMAIL", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Họ và tên", type = "email" })
+        @Html.TextBox("SDT", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Số điện thoại", type = "number" })<br />
+        @Html.TextBox("TENDN", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Tài khoản" })
+        @Html.TextBox("MATKHAU", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Mật khẩu", type = "password" })
+        @Html.TextBox("F_MATKHAU", "", new { @class = "form-control", @autofocus = "autofocus", placeholder = "Nhập lại Mật khẩu", type = "password" })*@
+                        @*@Html.TextBoxFor(model => model.HOTEN, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Họ và tên" })<br />
+        @Html.TextBoxFor(model => model.DIACHI, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Địa chỉ" })<br />
+        @Html.TextBoxFor(model => model.EMAIL, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Email" })<br />
+        @Html.TextBoxFor(model => model.SDT, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Số điện thoại" })<br />
+        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autofocus = "autofocus", placeholder = "Tài khoản" })*@
+                        @*<input type="email" placeholder="Email" Name="Email" required="">*@
+
+                        @*@Html.TextBoxFor(model => model.Password, new { @class = "form-control", @autofocus = "autofocus", type = "password", placeholder = "Mật khẩu", Name = "password" })
+        @Html.TextBoxFor(model => model., new { @class = "form-control", @autofocus = "autofocus", type = "password", placeholder = "Nhập lại mật khẩu", Name = "password" })*@
+
+                        @*<input type="password" placeholder="Password" Name="password" required="">*@
+                        <input type="submit" value="Đăng kí" style="width: 50%; background-color: #ef4d4d; color: white; padding: 12px 20px; border: none; font-size: 14px; letter-spacing: 1px; cursor: pointer; outline: none;">
+                        
+                        <input type="submit" value="Đăng kí" style="width: 50%; background-color: #ef4d4d; color: white; padding: 12px 20px; border: none; font-size: 14px; letter-spacing: 1px; cursor: pointer; outline: none;">
+                    </form>
+                    }
+                </center>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="footer-w3l">
+        <p class="agile"> &copy; 2017 Elegant Login Form . All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+    </div>
+</body>
+</html>

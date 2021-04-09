@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebsiteDichVuDiChoThueCDIO4.Models.TAIKHOAN>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Mã tài khoản</td>
+                <td>Mật khẩu</td>
+                <td>Tên đăng nhập</td>
+                <td>Số điện thoại</td>
+                <td>Địa chỉ</td>
+                <td>Họ tên</td>
+                <td>Email</td>
+                <td>Loại tài khoản</td>
+
+            </tr>
+            @foreach(var item in Model)
+            {
+        <tr>
+            <td>@item.TK_ID</td>
+            <td>@item.MATKHAU</td>
+            <td>@item.TENDN</td>
+            <td>@item.SDT</td>
+            <td>@item.DIACHI</td>
+            <td>@item.HOTEN</td>
+            <td>@item.EMAIL</td>
+            <td>@item.LOAITK_ID</td>
+        </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿
+@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<SANPHAM>
+
+
+@{
+    ViewBag.Title = "CTSanPham";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+
+<head>
+    <title>Cửa hàng mới Một danh mục thương mại điện tử Mẫu trang web tương ứng Bootstarp phẳng |  Dấu hiệu :: w3layouts</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css"><!--//fonts-->
+    <!-- start menu -->
+    <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+
+
+    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/js/simpleCart.min.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+
+<div class="col-md-12 product-price1">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-5 single-top">
+            <div class="flexslider" style="height:400px">
+
+                <div class="flex-viewport" style="overflow: hidden; position: relative;height:400px">
+                    <ul class="slides" style="width: 1200%; transition-duration: 0.6s; ">
+
+                        <img src="@Url.Content("~/Content/images/"+item.HINHANH)" alt="1" style="width:400px" ; height="300px">
+
+
+                    </ul>
+
+                </div>
+                <!-- FlexSlider -->
+                <script defer="" src="~/Content/js/jquery.flexslider.js"></script>
+                <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen">
+
+                <script>
+// Can also be used with $(document).ready()
+
+                </script>
+            </div>
+
+            <div class="clearfix"> </div>
+            <!---->
+
+
+        </div>
+        <div class="col-md-7 single-top-in simpleCart_shelfItem">
+            <div class="single-para ">
+                <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TENSP</font></font></h4>
+                <div class="star-on">
+                    <ul class="star-footer">
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                        <li><a href="#"><i> </i></a></li>
+                    </ul>
+                    <div class="review">
+
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+                <h5 class="item_price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.GIASP.Value.ToString("#,##") VND</font></font></h5>
+                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.MOTASP </font></font></p>
+
+                <ul class="tag-men">
+                    <li>
+                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số lượng còn</font></font></span>
+                        <span class="women1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">: @item.SOLUONGTON</font></font></span>
+                    </li>
+                    <li>
+                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mã </font></font></span>
+                        <span class="women1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">: @item.SP_ID</font></font></span>
+                    </li>
+                </ul>
+                <a href="@Url.Action("ThemGioHang","GioHang",new { @SP_ID=item.SP_ID,@iurl=Request.Url.ToString()})" class="add-cart item_add"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">THÊM VÀO GIỎ HÀNG</font></font></a>
+
+            </div>
+        </div>
+        int a = (int)item.SP_ID;
+        @Html.Action("PartialBL", "ChiTietSP")
+        <div>
+            @using (Html.BeginForm("ThemBL", "ChiTietSP"))
+            {
+               
+                <table align="center" class="table">
+                    <tr>
+                        <td align="center" colspan="2"> <h2>Đánh giá của bạn</h2> </td>
+                    </tr>
+                    <tr>
+                        <td>Nội dụng</td>
+                        <td>@Html.TextBox("NOIDUNG")</td>
+                    </tr>
+                    <tr>
+                        <td>Số sao đánh giá (1-5)</td>
+                        <td>@Html.TextBox("DANHGIA")</td>
+                    </tr>
+                    @Html.Hidden("url", Request.Url.ToString())
+                    @Html.Hidden("SP_ID", item.SP_ID.ToString())
+                </table>
+                <button type="submit">danh gia</button>
+            }
+
+
+
+        </div>
+
+
+    }
+
+
+
+
+
+
+</div>
+
+
+
+
+
+

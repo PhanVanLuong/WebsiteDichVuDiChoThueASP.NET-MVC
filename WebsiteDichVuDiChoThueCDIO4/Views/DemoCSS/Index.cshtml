@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+
+<div style="width:800px">
+    <input type="button" id="btndangnhap" value="dangnhap" />
+     
+        
+            <div class="form-inner">
+                <div class="wrapper">
+                    <div class="d-grid top-form">
+                        <div class="logo">
+                            <a class="brand-logo" href="index.html"><span><span class="fa fa-viadeo" aria-hidden="true"></span> Desk Login form</span></a>
+                            <!-- if logo is image enable this
+                            <a class="brand-logo" href="#index.html">
+                                <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                            </a> -->
+                        </div>
+                    </div>
+
+                    <div class="form-bg-blur">
+                        <input type="button" value="Đóng" id="btndong" class="btn btn-primary" />
+                        <div class="form-61">
+                            <h4 class="form-head">User Login</h4>
+
+                            <form action="#" method="GET">
+
+                                <div class="">
+                                    <p class="text-head">Username</p>
+                                    <input type="text" name="txtTaiKhoan" class="input" required="">
+
+                                </div>
+                                <div class="">
+                                    <p class="text-head">Password</p>
+                                    <input type="password" name="txtMatKhau" class="input" required="">
+
+                                </div>
+
+                                <button id="btndangnhap1" type="submit" class="signinbutton btn">Đăng nhập</button>
+
+                                @if (ViewBag.tt=="DMM")
+                                {
+                                    <script type="text/javascript">
+                                        alert('học lập trình online toidicode.com');
+                                    </script>
+                                }
+                            </form>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="go-to-home text-center">
+                        <p>Want to Create account? <a class="btn" href="signup.html"> Signup </a></p>
+                    </div> -->
+                </div>
+
+            </div>
+        
+    </div>
+<style>
+    #btndong {
+        float: right;
+    }
+
+    #popup_login {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,.5);
+        z-index: 99;
+        display: none;
+    }
+</style>
+
+@*Sử dụng jquery*@
+<script type="text/javascript">
+    $("#btndangnhap").click(function () {
+        $("#popup_login").css("display","block")
+    })
+    $("#btndong").click(function () {
+        $("#popup_login").css("display", "none")
+    })
+    $("#btndangnhap1").click(function () {
+        var taikhoan = $("#idtaikhoan").val();
+        alert("Tài khoản: " + taikhoan);
+    })
+</script>
+
+
+

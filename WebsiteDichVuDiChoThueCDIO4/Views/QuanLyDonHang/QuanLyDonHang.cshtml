@@ -1,0 +1,79 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<DONHANG>
+
+@{
+    ViewBag.Title = "QuanLyDonHang";
+    Layout = "~/Views/Layout/AdminPartial.cshtml";
+}
+
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+</head>
+
+<center><h2>Quản lý đơn hàng</h2></center>
+
+<label>@ViewBag.ThongBao</label>
+<table border="1" id="customers">
+    <tr>
+        <th><label>ID đơn hàng</label></th>
+        <th><label>Địa chỉ</label></th>
+        <th><label>Số điện thoại</label></th>
+        <th><label>Thành tiền</label></th>
+
+        <th><label>Ngày tháng</label></th>
+        <th><label>Họ tên</label></th>
+        <th><label>Email</label></th>
+    
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+<tr>
+    <td><label>@item.DH_ID</label></td>
+    <td><label>@item.DIACHI</label></td>
+    <td><label>@item.SDT</label></td>
+    <td><label>@item.THANHTIEN</label></td>
+
+    <td><label>@item.DATE.Value.Date</label></td>
+    <td><label>@item.HOTEN</label></td>
+    <td><label>@item.EMAIL</label></td>
+
+
+
+
+</tr>
+    }
+</table>
+<br />
+
+
+

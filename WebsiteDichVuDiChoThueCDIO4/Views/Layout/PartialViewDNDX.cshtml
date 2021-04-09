@@ -1,0 +1,65 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@using WebsiteDichVuDiChoThueCDIO4.Conmon
+
+    <head>
+        <title>Desk Login form Responsive Widget Template :: W3layouts</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Desk Login form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+        <!-- //Meta tag Keywords -->
+
+        <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+
+        <!--/Style-CSS -->
+        <link rel="stylesheet" href="~/Content/css/StyleLogin.css" type="text/css" media="all">
+        <!--//Style-CSS -->
+    </head>
+
+<div class="header_top">
+    <div class="container">
+        <div class="logo">
+            <a href="/"><h1>Đi Chợ Thuê</h1></a>
+        </div>
+        <ul class="shopping_grid">
+
+            @{
+                var session = (UserLogin)Session[WebsiteDichVuDiChoThueCDIO4.Conmon.CommonConstants.USER_SESSION];
+            }
+            @if (session == null)
+            {
+                <a href="@Url.Action("DangKiTaiKhoan","HomeKH")"><li>Đăng ký</li></a>
+                <a href="@Url.Action("DangNhap","Login")" id="btndangnhap"><li>Đăng nhập</li></a>
+
+
+
+            }
+
+
+            else
+            {
+                TAIKHOAN t = (TAIKHOAN)Session["TaiKhoanH"];
+                <a href="#"><li>Xin chào : @session.UserName</li></a>
+                using (Html.BeginForm("DangXuat", "HomeKH", FormMethod.Get))
+                {
+                    <button type="submit" style="float:left;margin-top:15px"> Đăng xuất </button>
+
+                }
+
+
+            }
+
+
+
+            @* chèn partialview giỏ hàng tách icon giở hàng sang một partialview m*@
+            <a href="@Url.Action("XemGioHang","GioHang")"><li><span class="m_1">Giỏ hàng</span><img src="/assets/client/images/bag.png" alt=""></li></a>
+            <a href="@Url.Action("HienThiDonHang","DonHang")"><li><span class="m_1">Đơn hàng</span><img src="/assets/client/images/bag.png" alt=""></li></a>
+            
+
+            @*@Html.Action("GioHangPartial", "GioHang")*@
+
+
+        </ul>
+        <div class="clearfix"> </div>
+    </div>
+</div>

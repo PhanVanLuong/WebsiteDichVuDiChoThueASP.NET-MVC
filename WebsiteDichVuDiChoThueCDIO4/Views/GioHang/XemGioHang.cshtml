@@ -1,0 +1,113 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<GIOHANG>
+
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+
+<head>
+    <title>Cửa hàng mới Một danh mục thương mại điện tử Mẫu trang web tương ứng Bootstarp phẳng |  Thanh toán :: w3layouts</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css"><!--//fonts-->
+    <!-- start menu -->
+    <link href="~/Content/css/memenu.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="~/Content/js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <script src="~/Content/js/simpleCart.min.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+
+<h2>Giỏ hàng của tôi</h2>
+
+<div class="check">
+
+    <div class="col-md-9 cart-items">
+         @{int sum=0; }
+        @foreach (var item in Model)
+        {
+            <div class="cart-header" >
+                @*<div class="close1">  </div>*@
+                <div class="cart-sec simpleCart_shelfItem">
+                    <div class="cart-item cyc">
+                        <img src="@Url.Content("~/Content/images/"+item.HINHANH)" class="img-responsive" alt="">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TENSP</font></font></a><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mẫu số: @item.SP_ID</font></font></span></h3>
+                        <ul class="qty">
+                            @using (Html.BeginForm("SuaGioHang", "GioHang", new { @MaSP = item.SP_ID }))
+                            {
+                                <li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giá sản phẩm: @item.GIASP.Value.ToString("#,##")</font></font></p></li>
+                                <li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số lượng:@item.SOLUONG </font></font></p><p>Số lượng sửa</p>@Html.TextBox("SOLUONG") </li>
+
+
+                                <button type="submit" style="float:right;margin:auto"> Sửa</button>
+
+                            }
+                            @using (Html.BeginForm("XoaGioHang", "GioHang", new { @MaSP = item.SP_ID }))
+                            {
+                                <button type="submit" style="float:right;margin:auto"> Xóa</button>
+
+                            }
+
+
+                        </ul>
+
+                        <div class="delivery">
+                            
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phí dịch vụ: @((item.GIASP.GetValueOrDefault(0) * item.SOLUONG).Value.ToString("#,##"))</font></font></p>
+                            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Được giao sau 2-3 ngày làm việc</font></font></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    @{sum = sum + Convert.ToInt32(item.GIASP.GetValueOrDefault(0) * item.SOLUONG);}
+                </div>
+            </div>
+        }
+
+
+        
+    </div>
+    <div class="col-md-3 cart-total">
+        <a class="continue" href="/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tiếp tục mua hàng</font></font></a>
+        <div class="price-details">
+            <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi tiết giá</font></font></h3>
+            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Toàn bộ</font></font></span>
+            <span class="total1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@sum.ToString("#,##")</font></font></span>
+            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Giảm giá</font></font></span>
+            <span class="total1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">---</font></font></span>
+            <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Phí vận chuyển</font></font></span>
+            <span class="total1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0</font></font></span>
+            <div class="clearfix"></div>
+        </div>
+        <ul class="total_price">
+            <li class="last_price"> <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TOÀN BỘ</font></font></h4></li>
+            <li class="last_price"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@sum.ToString("#,##")</font></font></span></li>
+            <div class="clearfix"> </div>
+        </ul>
+
+
+        <div class="clearfix"></div>
+        <a class="order" href="@Url.Action("ThanhToan","ThanhToan")"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đặt hàng</font></font></a>
+
+    </div>
+
+    <div class="clearfix"> </div>
+</div>
+
+

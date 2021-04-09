@@ -1,0 +1,40 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Conmon
+@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<BINHLUAN>
+
+
+    <div class="col-md-12 single-top-in simpleCart_shelfItem" style="height:300px;background:#b6ff00">
+        <h1>Bình luận và đánh giá</h1>
+
+        @foreach (var item in Model.GroupBy(n => n.TAIKHOAN))
+        {
+
+            <center>
+                <div class="col-md-4 single-top-in simpleCart_shelfItem" style="margin-top:15px">
+                    <a>@item.Key.HOTEN</a>
+                </div>
+            </center>
+            foreach (var itemnd in Model)
+            {
+                <div class="col-md-4 single-top-in simpleCart_shelfItem" style="margin-top:15px">
+                    <a>@itemnd.NOIDUNG</a>
+                </div>
+                <div class="col-md-4 single-top-in simpleCart_shelfItem" style="margin-top:15px">
+                    <a>Số sao đánh giá: </a>
+                    <a>@itemnd.DANHGIA</a>
+                </div>
+                int a = (int)itemnd.SP_ID;
+            }
+
+
+        }
+               
+                
+
+
+
+
+
+
+    </div>
+

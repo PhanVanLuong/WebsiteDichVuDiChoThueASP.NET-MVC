@@ -1,0 +1,99 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@model TAIKHOAN
+
+@{
+    ViewBag.Title = "DangKi";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+<head>
+    <title>Cửa hàng mới Một danh mục thương mại điện tử Mẫu trang web tương ứng Bootstarp phẳng |  Đăng ký :: w3layouts</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css"><!--//fonts-->
+    <!-- start menu -->
+    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <script src="js/simpleCart.min.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+
+<div class="container">
+    <div class=" register">
+        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng ký</font></font></h1>
+        <form>
+            <div class="col-md-9 register-top-grid">
+                @using (Html.BeginForm())
+                {
+
+                
+                <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thông tin cá nhân</font></font></h3>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Họ và tên</font></font></span>
+                    @Html.TextBox("HOTEN")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Địa chỉ</font></font></span>
+                    @Html.TextBox("DIACHI")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Email</font></font></span>
+                    @Html.TextBox("EMAIL")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Số điện thoại</font></font></span>
+                    @Html.TextBox("SDT")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tài khoản</font></font></span>
+                    @Html.TextBox("TENDN")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mật khẩu</font></font></span>
+                    @Html.Password("MATKHAU")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nhập lại mật khẩu</font></font></span>
+                    @Html.Password("NLMATKHAU")
+                </div>
+                <div>
+                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Địa chỉ email</font></font></span>
+                    <input type="text">
+                </div>
+                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Gửi đi"></font></font>
+                }
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@*<div class="col-md-6 register-bottom-grid">
+    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng nhập thông tin</font></font></h3>
+    <div>
+        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mật khẩu</font></font></span>
+        <input type="password">
+    </div>
+    <div>
+        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xác nhận mật khẩu</font></font></span>
+        <input type="password">
+    </div>
+    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" value="Gửi đi"></font></font>
+
+</div>
+<div class="clearfix"> </div>*@

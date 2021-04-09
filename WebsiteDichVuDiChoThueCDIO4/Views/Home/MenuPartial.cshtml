@@ -1,0 +1,77 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<SANPHAM>
+
+
+<div class="menu_box">
+    <h3 class="menu_head">Danh Sách Sản Phẩm</h3>
+    <ul class="menu">
+        @foreach (var groupItem in Model.GroupBy(n => n.NHASANXUAT))
+        {
+            if(groupItem.Key != null)
+            {
+                <li class="item1">
+                    <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">@groupItem.Key.TENNSX</a>
+                    <ul class="cute" style="display: none;">
+                        @foreach (var item in groupItem.GroupBy(n => n.LoaiHang))
+                        {
+                            if (item.Key != null)
+                            {
+                                <li class="subitem1"><a href="@Url.Action("SanPham","SanPham" , new { @NSX=groupItem.Key.NSX_ID , @LoaiSP = item.Key.LOAIHANG_ID })">@item.Key.TENLOAIHANG</a></li>
+                            }
+                        }
+                        
+
+                    </ul>
+                </li>
+            }
+            
+        }
+
+        @*<li class="item2">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Rau, Củ, Quả - Trái Cây</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">Rau xanh </a></li>
+                <li class="subitem2"><a href="#">Các Loại Củ - Quả </a></li>
+                <li class="subitem3"><a href="#">Trái Cây </a></li>
+            </ul>
+        </li>
+        <li class="item3">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Các Loại Tàu Hủ Non</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">Tàu Hủ Non Trắng </a></li>
+            </ul>
+        </li>
+        <li class="item4">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Thực Phẩm Khô - Trứng</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">Các Loại Trứng </a></li>
+                <li class="subitem2"><a href="#">Thực Phẩm Khô </a></li>
+            </ul>
+        </li>
+        <li class="item5">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Gia Vị</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">.... </a></li>
+            </ul>
+        </li>
+        <li class="item6">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Các Loại nước Uống - Sữa</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">..... </a></li>
+            </ul>
+        </li>
+        <li class="item7">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Thực Phẩm Khác</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">.....</a></li>
+            </ul>
+        </li>
+        <li class="item8">
+            <a href="#"><img class="arrow-img" src="~/Content/images/f_menu.png" alt="">Dich Vụ Dọn Nhà Theo Giờ</a>
+            <ul class="cute" style="display: none;">
+                <li class="subitem1"><a href="#">Dịch Vụ Dọn Nhà Theo Giờ </a></li>
+
+            </ul>
+        </li>*@
+    </ul>
+</div>

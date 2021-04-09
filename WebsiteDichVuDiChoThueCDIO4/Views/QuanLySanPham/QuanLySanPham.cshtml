@@ -1,0 +1,87 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<SANPHAM>
+
+@{
+    ViewBag.Title = "QuanLySanPham";
+    Layout = "~/Views/Layout/AdminPartial.cshtml";
+}
+
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+</head>
+
+<h2>Quản lý tài khoản</h2>
+<br />
+<label>@ViewBag.ThongBao</label>
+<table border="1" id="customers">
+    <tr>
+        <th><label>Tên sản phẩm</label></th>
+        <th><label>Giá sản phẩm</label></th>
+        <th><label>Mô tả sản phẩm</label></th>
+        <th><label>Hình ảnh</label></th>
+        
+        <th><label>Số lượng tồn</label></th>
+        
+
+        <th><label>Chức năng xóa</label></th>
+        <th><label>Chức năng sửa</label></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+<tr>
+    <td><label>@item.TENSP</label></td>
+    <td><label>@item.GIASP.Value.ToString("#,##")</label></td>
+    <td><label>@item.MOTASP</label></td>
+    <td><label><img class="img-responsive" src="@Url.Content("~/Content/images/"+item.HINHANH)" alt="" style="width:200px;height:120px"></label></td>
+
+    <td><label>@item.SOLUONGTON</label></td>
+
+
+
+    @using (Html.BeginForm("Xoa", "QuanLySanPham", new { @SP_ID = item.SP_ID }))
+    {
+        <td><button type="submit" style="width:100px">Xóa</button></td>
+    }
+
+    @using (Html.BeginForm("Sua", "QuanLySanPham", FormMethod.Get, new { @SP_ID = item.SP_ID }))
+    {
+        @*<td><a href="@Url.Action("Sua", "QuanLySanPham", new { @SP_ID = item.SP_ID })">Sửa</a></td>*@
+        <td><button type="submit" style="width:100px">Sửa</button></td>
+    }
+
+
+</tr>
+    }
+</table>
+<br />
+<a href="@Url.Action("ThemSanPham","QuanLySanPham")" style="font-size:x-large">Thêm Sản phẩm</a>
+
+

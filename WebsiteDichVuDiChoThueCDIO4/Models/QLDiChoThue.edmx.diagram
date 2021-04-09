@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95e4453c3b234beaa7842b43b168f1ef" Name="Diagram1">
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.BINHLUAN" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.CHITIETDONHANG" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.DANHGIA" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.DONHANG" Width="1.5" PointX="6" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.GIAOHANG" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.GIOHANG" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.LoaiHang" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.LOAITAIKHOAN" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.NHASANXUAT" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.SANPHAM" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.sysdiagram" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.TAIKHOAN" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDICHOTHUEModel.THANHTOAN" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_BINHLUAN_TAIKHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.KP_SP_ID_BL" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_CHITIETDONHANG_DONHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_CHITIETDONHANG_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_DANHGIA_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_DONHANG_GIAOHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_DONHANG_TAIKHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_THANHTOAN_GIAOHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_GIOHANG_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_GIOHANG_TAIKHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_SANPHAM_LoaiHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_TAIKHOAN_LOAITAIKHOAN" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_SANPHAM_NHACUNGCAP" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.KP_NSX_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.FK_THANHTOAN_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDICHOTHUEModel.KP_TK_ID_TT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,55 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@using WebsiteDichVuDiChoThueCDIO4.Conmon
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+
+
+
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+
+
+
+<h2>SanPham</h2>
+@{
+    var session = (UserLogin)Session[WebsiteDichVuDiChoThueCDIO4.Conmon.CommonConstants.USER_SESSION];
+}
+<div class="col-md-12 product1">
+    <div class="bottom-product">
+        @foreach (var item in Model.OrderBy(n => n.GIASP))
+        {
+            <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                <div class="product-at ">
+                    <a href="single.html">
+                        <img class="img-responsive" src="@Url.Content("~/Content/images/"+item.HINHANH)" alt="" style="width:500px;height:300px">
+                        <div class="pro-grid">
+                            <a href="@Url.Action("ThemGioHang","GioHang",new { @SP_ID=item.SP_ID,@iurl=Request.Url.ToString()})" class="buy-in"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thêm vào giở hàng</font></font></a>
+                        </div>
+                    </a>
+                </div>
+                <p class="tun"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.TENSP</font></font></p>
+                <a href="@Url.Action("CTSanPham","ChiTietSP",  new { @SP_ID=item.SP_ID})" class="item_add"><p class="number item_price"><i> </i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@item.GIASP.Value.ToString("#,##")</font></font></p></a>
+            </div>
+
+        }
+
+        <div class="clearfix"> </div>
+    </div>
+
+</div>
+
+<br />
+@*Tạo liên kết phân trang*@
+Số trang @(Model.PageCount<Model.PageNumber ? 0:Model.PageNumber)/@Model.PageCount
+<div class="Menutrang">
+    @Html.PagedListPager(Model, page => Url.Action("SanPham", new { page = page ,@LoaiSP = ViewBag.LoaiHang_ID , @NSX = ViewBag.NSX_ID }))
+</div>
+@*Có thể css lại thanh phân trang*@
+<style>
+    .Menutrang {
+    }
+</style>

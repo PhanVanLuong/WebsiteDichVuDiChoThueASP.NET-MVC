@@ -1,0 +1,64 @@
+﻿
+@using WebsiteDichVuDiChoThueCDIO4.Models
+@model TAIKHOAN
+
+@{
+    ViewBag.Title = "DangNhap1";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+<head>
+   
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--fonts-->
+    <link href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css"><!--//fonts-->
+    <!-- start menu -->
+    <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <script src="js/simpleCart.min.js"></script>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+</head>
+
+<div class="container">
+    <div class=" register">
+        <h1><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đăng Nhập</font></font></h1>
+        <form>
+            <div class="col-md-9 register-top-grid" style="">
+                @using (Html.BeginForm())
+                {
+
+
+                    <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thông tin cá nhân</font></font></h3>
+                    
+                    <div>
+                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tài khoản</font></font></span>
+                        <input name="txttaikhoan" type="text" />
+                    </div>
+                    <div>
+                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mật khẩu</font></font></span>
+                        <input name="txtmatkhau" type="text" />
+                    </div>
+                    
+                    <font style="vertical-align: inherit; float:none"><font style="vertical-align: inherit;"><input type="submit" value="Gửi đi"></font></font>
+                    <span>@ViewBag.ThongBao</span>
+                }
+            </div>
+
+        </form>
+    </div>
+</div>
+
+

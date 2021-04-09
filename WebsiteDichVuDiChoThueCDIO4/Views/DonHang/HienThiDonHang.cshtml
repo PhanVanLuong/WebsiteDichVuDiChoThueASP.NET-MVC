@@ -1,0 +1,86 @@
+﻿@using WebsiteDichVuDiChoThueCDIO4.Models
+@model IEnumerable<DONHANG>
+
+
+@{
+    ViewBag.Title = "HienThiDonHang";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+    </style>
+</head>
+
+<h2>Đơn hàng của tôi</h2>
+
+
+    <div class="a" style="margin-top:20px">
+        <table border="1" id="customers">
+            <tr>
+                <th><label>Mã đơn hàng</label></th>
+                <th><label>Họ tên</label></th>
+                <th><label>Địa chỉ</label></th>
+                <th><label>Số điện thoại</label></th>
+
+                <th><label>Email</label></th>
+
+                <th><label>Thời gian</label></th>
+                <th><label>Thành tiền</label></th>
+                <th><label>Chức năng xem ct</label></th>
+                <th><label>Chức năng hủy</label></th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><spam>@item.DH_ID</spam></td>
+                    <td>@item.HOTEN</td>
+                    <td>@item.DIACHI</td>
+                    <td>@item.SDT</td>
+                    <td>@item.EMAIL</td>
+                    <td>@item.DATE</td>
+                    <td>@item.THANHTIEN.Value.ToString("#,##")</td>
+                    <td><a style="width:50px" href="@Url.Action("ChiTietDonHang","DonHang",new { @DH_ID=item.DH_ID})" class="item_add"><p class="number item_price"><i> </i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chi tiết sản phẩm</font></font></p></a></td>
+                    @using (Html.BeginForm("XoaDonHang", "DonHang", new { @DH_ID = item.DH_ID }))
+                    {
+                        <td> <button type="submit" style="width:50px ; background-color:#ec7c24">Hủy</button></td>
+                        <spam>@ViewBag.TBXoaDonHang</spam>
+                    }
+
+
+                </tr>
+            }
+            </table>
+
+    </div>
+
+
+
+
